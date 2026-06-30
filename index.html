@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NEON DASH — Super Platformer</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ================= START SCREEN ================= -->
+  <div id="start-screen" class="screen">
+    <div class="title-wrap">
+      <h1 class="game-title">NEON<span class="dash">DASH</span></h1>
+      <p class="game-subtitle">A Super Cool Platformer</p>
+    </div>
+    <div class="menu-card">
+      <button id="btn-start" class="btn btn-primary">▶ START GAME</button>
+      <div class="level-select">
+        <p class="level-select-label">JUMP TO LEVEL</p>
+        <div id="level-buttons" class="level-buttons"></div>
+      </div>
+      <div class="controls-hint">
+        <h3>CONTROLS</h3>
+        <div class="controls-grid">
+          <div class="control-row"><span class="key">◄ ►</span><span>or</span><span class="key">A D</span><span>Move</span></div>
+          <div class="control-row"><span class="key">▲</span><span>or</span><span class="key">SPACE / W</span><span>Jump (hold to double-jump)</span></div>
+          <div class="control-row"><span class="key">P</span><span></span><span></span><span>Pause</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= GAME SCREEN ================= -->
+  <div id="game-screen" class="screen hidden">
+    <div id="hud">
+      <div class="hud-group">
+        <span class="hud-label">LEVEL</span>
+        <span id="hud-level" class="hud-value">1</span>
+        <span id="hud-level-name" class="hud-sub">Grassland</span>
+      </div>
+      <div class="hud-group">
+        <span class="hud-label">SCORE</span>
+        <span id="hud-score" class="hud-value">0</span>
+      </div>
+      <div class="hud-group">
+        <span class="hud-label">COINS</span>
+        <span id="hud-coins" class="hud-value">0</span>
+      </div>
+      <div class="hud-group lives-group">
+        <span class="hud-label">LIVES</span>
+        <span id="hud-lives" class="hud-value">3</span>
+      </div>
+      <button id="btn-pause" class="btn btn-icon" title="Pause">❚❚</button>
+    </div>
+
+    <div id="canvas-wrap">
+      <canvas id="game-canvas" width="960" height="540"></canvas>
+
+      <div id="pause-overlay" class="overlay hidden">
+        <div class="overlay-card">
+          <h2>PAUSED</h2>
+          <button id="btn-resume" class="btn btn-primary">▶ Resume</button>
+          <button id="btn-restart-level" class="btn btn-secondary">↺ Restart Level</button>
+          <button id="btn-quit" class="btn btn-secondary">⏏ Quit to Menu</button>
+        </div>
+      </div>
+
+      <div id="level-complete-overlay" class="overlay hidden">
+        <div class="overlay-card">
+          <h2 id="lc-title">LEVEL CLEAR!</h2>
+          <p class="lc-stats" id="lc-stats"></p>
+          <button id="btn-next-level" class="btn btn-primary">NEXT LEVEL ▶</button>
+          <button id="btn-replay-level" class="btn btn-secondary">↺ Replay</button>
+        </div>
+      </div>
+
+      <div id="game-over-overlay" class="overlay hidden">
+        <div class="overlay-card">
+          <h2>GAME OVER</h2>
+          <p class="lc-stats" id="go-stats"></p>
+          <button id="btn-try-again" class="btn btn-primary">↺ Try Again</button>
+          <button id="btn-go-menu" class="btn btn-secondary">⏏ Main Menu</button>
+        </div>
+      </div>
+
+      <div id="victory-overlay" class="overlay hidden">
+        <div class="overlay-card victory-card">
+          <h2>★ YOU BEAT THE GAME ★</h2>
+          <p class="lc-stats" id="victory-stats"></p>
+          <button id="btn-victory-menu" class="btn btn-primary">⏏ Main Menu</button>
+        </div>
+      </div>
+
+      <div id="touch-controls" class="hidden">
+        <div class="touch-left">
+          <button id="t-left" class="t-btn">◄</button>
+          <button id="t-right" class="t-btn">►</button>
+        </div>
+        <button id="t-jump" class="t-btn t-jump">▲</button>
+      </div>
+    </div>
+
+    <p class="canvas-caption">Reach the glowing portal at the end of the level. Collect coins, stomp enemies, avoid spikes and lava.</p>
+  </div>
+
+  <script src="levels.js"></script>
+  <script src="player.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
